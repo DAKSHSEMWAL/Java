@@ -14,15 +14,14 @@ public class Shipment  extends Frame implements ActionListener,WindowListener,It
 	double cost=0.0,temp=0.0;
 	Shipment()
 	{
-		FlowLayout l=new FlowLayout();
-		setLayout(l);
+		setLayout(new FlowLayout());
 		setTitle("ASUSTek");
-		setSize(500,200);
+		setSize(300,150);
 		l1=new Label("Unit Odered");
 		l2=new Label("Coustmer Type");
 		l3=new Label("Total Cost",Label.RIGHT);
 		t1=new TextField(20);
-		t2=new TextField(20);
+		t2=new TextField(15);
 		t2.setEditable(false);
 		cbg=new CheckboxGroup();
 		checkDiscount= new Checkbox("Special Discount");
@@ -31,7 +30,7 @@ public class Shipment  extends Frame implements ActionListener,WindowListener,It
 		btncal=new Button("CalCost");
 		p1=new Panel(new GridLayout(3,1));
 		p2=new Panel(new GridLayout(3,1));
-		p3=new Panel(new GridLayout(1,3));
+		p3=new Panel(new FlowLayout());
 		p1.add(l1);
 		p1.add(t1);
 		p1.add(checkDiscount);
@@ -106,20 +105,12 @@ public class Shipment  extends Frame implements ActionListener,WindowListener,It
 			{
 				cost=50*i;
 			}
-			else
-			{
-				cost=60*i;
-			}
 		}
 		if(i>15&&i<=20)
 		{
 			if(checkWholesaler.getState())
 			{
 				cost=45*i;
-			}
-			else
-			{
-				cost=55*i;
 			}
 		}
 		if(i>20&&i<=30)
@@ -128,20 +119,12 @@ public class Shipment  extends Frame implements ActionListener,WindowListener,It
 			{
 				cost=40*i;
 			}
-			else
-			{
-				cost=50*i;
-			}
 		}
 		if(i>30&&i<=50)
 		{
 			if(checkWholesaler.getState())
 			{
 				cost=35*i;
-			}
-			else
-			{
-				cost=45*i;
 			}
 		}
 		if(i>50)
@@ -150,7 +133,40 @@ public class Shipment  extends Frame implements ActionListener,WindowListener,It
 			{
 				cost=30*i;
 			}
-			else
+		}
+
+
+		if(i>0&&i<=15)
+		{
+			if(checkRetailer.getState())
+			{
+				cost=60*i;
+			}
+		}
+		if(i>15&&i<=20)
+		{
+			if(checkRetailer.getState())
+			{
+				cost=55*i;
+			}
+		}
+		if(i>20&&i<=30)
+		{
+			if(checkRetailer.getState())
+			{
+				cost=50*i;
+			}
+		}
+		if(i>30&&i<=50)
+		{
+			if(checkRetailer.getState())
+			{
+				cost=45*i;
+			}
+		}
+		if(i>50)
+		{
+			if(checkRetailer.getState())
 			{
 				cost=40*i;
 			}
